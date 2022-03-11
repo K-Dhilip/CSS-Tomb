@@ -1,0 +1,173 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  width: 100%;
+  background-repeat: no-repeat;
+  background: linear-gradient(380deg, black, grey);
+}
+.container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 40px;
+}
+
+.tomb {
+  width: 150px;
+  height: 140px;
+  background: linear-gradient(60deg, rgb(34, 34, 34), rgb(78, 67, 67));
+  position: relative;
+  border-radius: 5px 5px 0 0;
+}
+
+.tomb::before {
+  content: "";
+  width: 150px;
+  height: 150px;
+  top: -30px;
+  border-radius: 50%;
+  background: linear-gradient(60deg, rgb(34, 34, 34), rgb(78, 67, 67));
+  position: absolute;
+  z-index: -1;
+}
+
+/* text-part */
+p {
+  text-align: center;
+  font-size: 0.8rem;
+  color: rgb(112, 112, 112);
+  font-family: sans-serif;
+}
+
+.tomb-front > p {
+  padding-top: 80px;
+  color: rgb(109, 109, 109);
+  font-size: 1em;
+  text-transform: uppercase;
+  font-family: serif;
+}
+
+h1 {
+  font-family: cursive;
+  filter: drop-shadow(1px 0px 3px);
+  text-align: center;
+  font-size: 1.6rem;
+  color: rgb(255, 0, 0);
+  letter-spacing: 1px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.tomb-front {
+  width: 150px;
+  height: 270px;
+  background-color: rgb(66, 58, 58);
+  position: absolute;
+  top: 170px;
+  z-index: 1;
+  animation: move 6s infinite;
+  animation-delay: 3s;
+}
+
+.tomb-front::after {
+  position: absolute;
+  bottom: 0px;
+  content: "";
+  width: 150px;
+  height: 30px;
+  background-color: rgb(43, 36, 36);
+}
+.bed {
+  content: "";
+  width: 150px;
+  height: 270px;
+  top: 0px;
+  background: linear-gradient(-60deg, rgb(34, 34, 34), rgb(78, 67, 67));
+  border: 20px solid rgb(66, 58, 58);
+  position: relative;
+}
+
+.skull {
+  width: 50px;
+  height: 50px;
+  background-color: aliceblue;
+  background-image: repeating-linear-gradient(
+    0deg,
+    rgb(219, 219, 219),
+    transparent 10px,
+    rgb(156, 156, 156) 3px,
+    rgb(207, 207, 207) 3px
+  );
+  z-index: 1;
+  border-radius: 20px 20px 10px 10px;
+  position: relative;
+  bottom: 240px;
+}
+
+.skull::after {
+  content: "";
+  width: 10px;
+  left: 10px;
+  top: 10px;
+  height: 15px;
+  border-radius: 5px;
+  position: absolute;
+  animation: eye 1.5s infinite;
+}
+
+.skull::before {
+  content: "";
+  width: 10px;
+  right: 10px;
+  top: 10px;
+  height: 15px;
+  border-radius: 5px;
+  position: absolute;
+  animation: eye 1.5s infinite;
+}
+.skull-body {
+  width: 90px;
+  height: 160px;
+  background-color: white;
+  background-color: aliceblue;
+  background-image: repeating-linear-gradient(
+    0deg,
+    rgb(214, 214, 214),
+    transparent 10px,
+    rgb(156, 156, 156) 3px,
+    rgb(207, 207, 207) 3px
+  );
+  z-index: 1;
+  border-radius: 15px;
+  position: relative;
+  bottom: 240px;
+}
+
+/* Animation */
+
+@keyframes move {
+  from {
+    transform: rotate(0deg);
+    transform-origin: left bottom;
+  }
+  to {
+    transform: rotate(-30deg);
+    transform-origin: right bottom;
+  }
+}
+
+@keyframes eye {
+  from {
+    background-color: rgb(255, 255, 255);
+  }
+  to {
+    background-color: red;
+    filter: drop-shadow(1px 2px 3px red);
+  }
+}
